@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Quem Somos";
+}
+
+<section class="hero-banner position-relative overflow-hidden">
+    <img src="/images/carros/ImgFundoSobre.png"
+         alt=""
+         class="w-100 object-fit-cover"
+         style="height: 520px;" />
+
+    <div class="position-absolute top-50 end-0 translate-middle-y pe-5 text-white text-end">
+        <p class="text-uppercase letter-spacing-wide text-light small mb-1">Projeto Carros</p>
+        <h1 class="fw-bold text-uppercase ls-wide fs-2">VEJA O MUNDO EM SUA PLENITUDE</h1>
+    </div>
+</section>
+
+<section class="py-5 bg-white text-center">
+    <div class="container">
+        <h2 class="fw-bold text-uppercase letter-spacing-wide mb-4">QUEM SOMOS</h2>
+
+        <p class="mx-auto mb-3" style="max-width: 800px;">
+            Na Geely Auto, acreditamos que todos merecem uma experiência de mobilidade excepcional.
+            Combinamos segurança, tecnologia, inovação e design para tornar esses resultados acessíveis.
+            Não estamos apenas fazendo carros, estamos criando uma maneira melhor de viver.
+        </p>
+
+        <p class="mx-auto" style="max-width: 800px;">
+            Estamos permitindo que as pessoas explorem novos horizontes, possibilidades e perspectivas.
+            Para que elas olhem para o mundo, para a vida e vejam o mundo por completo,
+            com todos os seus detalhes.
+        </p>
+    </div>
+</section>
+
+<section class="nossa-jornada position-relative py-5 text-white"
+         style="background-image: url('/images/carros/NewYorkNight.jpg');
+                background-size: cover;
+                background-position: center;
+                min-height: 500px;">
+
+    @* overlay só no lado esquerdo, deixando a foto aparecer à direita *@
+    <div class="position-absolute top-0 start-0 h-100"
+         style="width: 55%;
+                background: linear-gradient(to right, rgba(0,0,0,0.65) 70%, transparent 100%);
+                z-index: 0;">
+    </div>
+
+    <div class="container position-relative" style="z-index: 1;">
+        <div class="col-md-6">
+            <h2 class="fw-bold text-uppercase mb-3" style="letter-spacing: 0.15em;">
+                NOSSA JORNADA
+            </h2>
+            <p style="line-height: 1.8;">
+                Nossa história começou em Zhejiang, China, em 1986. Logo nos tornamos
+                a primeira montadora chinesa de propriedade privada. Desde o lançamento
+                do nosso primeiro carro, mantemos três princípios fundamentais:
+                fornecer o mais alto valor aos clientes, entregar produtos e experiências
+                de alta qualidade e inovação constante em tecnologia, segurança e design,
+                com a missão de tornar a mobilidade inclusiva. Nos anos seguintes,
+                expandimos pelo mundo todo, e cada passo em nossa jornada nos aproximou
+                de uma mobilidade mais inclusiva, um ecossistema de alto valor que
+                permite que as pessoas vejam o mundo por completo.
+            </p>
+        </div>
+    </div>
+
+</section>

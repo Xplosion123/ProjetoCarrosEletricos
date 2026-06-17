@@ -1,0 +1,18 @@
+﻿@model ConfirmarExclusaoViewModel
+
+<h2>Excluir Conta</h2>
+
+<form asp-action="DeletarConta" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label>Digite sua  senha para confirmar: </label>
+        <input asp-for="Senha" type="password"/>
+    </div>
+
+    <br/>
+
+    <button type="submit" class="btn btn-danger">Excluir Conta</button>
+
+</form>
