@@ -70,6 +70,7 @@
 #carouselHome .carousel-control-prev,
 #carouselHome .carousel-control-next {
     width: 5%;
+    z-index: 3;
     opacity: 0;
     transition: opacity 0.2s;
 }
@@ -78,3 +79,85 @@
 #carouselHome:hover .carousel-control-next {
     opacity: 1;
 }
+/* === Carrossel ocupando 100% da tela (todos os slides, incluindo o vídeo) === */
+/* Ajuste o valor de --navbar-height se sua navbar não tiver ~80px */
+#carouselHome {
+    --navbar-height: 80px;
+}
+
+    #carouselHome,
+    #carouselHome .carousel-inner,
+    #carouselHome .carousel-item {
+        height: calc(100vh - var(--navbar-height));
+    }
+
+        /* Slides de imagem preenchendo o espaço sem distorcer */
+        #carouselHome .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+/* === Slide do vídeo + overlay === */
+#slide-video {
+    position: relative;
+    height: 100%;
+}
+
+#carouselVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.45));
+    padding: 1rem;
+    pointer-events: none; /* deixa os cliques passarem pras setas do carrossel */
+}
+
+    .slide-video-overlay h1 {
+        color: #fff;
+        font-size: clamp(1.6rem, 4vw, 3rem);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+        margin-bottom: 0.4rem;
+    }
+
+    .slide-video-overlay p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: clamp(0.95rem, 2vw, 1.2rem);
+        font-weight: 400;
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+        margin-bottom: 1.8rem;
+    }
+
+.btn-test-drive {
+    display: inline-block;
+    padding: 0.75rem 2.2rem;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s;
+    pointer-events: auto; /* reativa o clique só no botão */
+}
+
+    .btn-test-drive:hover {
+        background: #fff;
+        color: #000;
+    }

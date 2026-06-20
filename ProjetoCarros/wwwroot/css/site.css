@@ -1,25 +1,23 @@
-html {
-  font-size: 14px;
+ï»¿html {
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
-}
+
 .navbar {
     min-height: 80px;
 }
@@ -27,28 +25,28 @@ body {
 .carousel-item img {
     height: 700px;
     object-fit: cover;
-    border-radius:10px
+    border-radius: 10px
 }
 
 
 
 /* =============================================
-           TOKENS DE DESIGN — altere aqui para mudar o tema inteiro
+           TOKENS DE DESIGN ? altere aqui para mudar o tema inteiro
            ============================================= */
 :root {
     --bg: #363636;
     --bg-gerenciamento: #FFFAFA; /* fundo principal: quase preto */
-    --surface: #111111; /* superfície de cards/navbar */
+    --surface: #111111; /* superf?cie de cards/navbar */
     --border: #222222; /* bordas sutis */
     --border-hover: #444444; /* borda ao passar o mouse */
     --text: #f0f0f0; /* texto principal */
-    --muted: #666666; /* texto secundário (labels, datas) */
-    --accent: #00ff88; /* verde neon — o elemento "assinatura" do design */
+    --muted: #666666; /* texto secund?rio (labels, datas) */
+    --accent: #00ff88; /* verde neon ? o elemento "assinatura" do design */
     --accent-dim: #00cc6a; /* verde mais escuro para hover */
-    --danger: #ff4444; /* vermelho para ações destrutivas */
+    --danger: #ff4444; /* vermelho para a??es destrutivas */
     --warning: #ffaa00; /* amarelo para alertas */
 
-    --radius: 6px; /* borda arredondada padrão */
+    --radius: 6px; /* borda arredondada padr?o */
     --font-body: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 }
@@ -90,9 +88,9 @@ img {
 
 /* =============================================
            NAVBAR
-           O fundo é #111 com uma borda inferior fina que cria
-           separação sem sombra pesada. O logo usa a fonte mono
-           com o ponto verde, que é o "assinatura" repetido aqui.
+           O fundo ? #111 com uma borda inferior fina que cria
+           separa??o sem sombra pesada. O logo usa a fonte mono
+           com o ponto verde, que ? o "assinatura" repetido aqui.
            ============================================= */
 .navbar {
     background: var(--surface);
@@ -114,7 +112,7 @@ img {
     color: var(--text);
     letter-spacing: -0.5px;
 }
-    /* O ponto verde depois do nome é o detalhe "assinatura" */
+    /* O ponto verde depois do nome ? o detalhe "assinatura" */
     .navbar-brand span {
         color: var(--accent);
     }
@@ -145,7 +143,7 @@ img {
             color: var(--accent);
         }
 
-    /* Botão de logout/ação pequena na navbar */
+    /* Bot?o de logout/a??o pequena na navbar */
     .navbar-nav .btn-nav-action {
         background: transparent;
         border: 1px solid var(--border);
@@ -174,7 +172,7 @@ img {
 }
 
 /* =============================================
-           CONTEÚDO PRINCIPAL
+           CONTE?DO PRINCIPAL
            ============================================= */
 main {
     flex: 1;
@@ -190,7 +188,7 @@ main {
     letter-spacing: -0.5px;
     margin-bottom: 0.35rem;
 }
-/* Eyebrow: texto pequeno acima do título (ex: "// CATÁLOGO") */
+/* Eyebrow: texto pequeno acima do t?tulo (ex: "// CAT?LOGO") */
 .eyebrow {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -208,8 +206,8 @@ main {
 
 /* =============================================
            CARDS DE CARROS
-           Card com borda que acende no hover — comunica
-           que o item é clicável/interativo.
+           Card com borda que acende no hover ? comunica
+           que o item ? clic?vel/interativo.
            ============================================= */
 .card-grid {
     display: grid;
@@ -239,7 +237,7 @@ main {
     object-fit: cover;
     background: var(--border);
 }
-/* Placeholder quando não tem imagem */
+/* Placeholder quando n?o tem imagem */
 .car-card-img-placeholder {
     width: 100%;
     height: 180px;
@@ -285,7 +283,7 @@ main {
 /* =============================================
            BADGES DE CATEGORIA
            Cada tipo de powertrain tem uma cor diferente
-           para facilitar leitura rápida.
+           para facilitar leitura r?pida.
            ============================================= */
 .badge {
     display: inline-block;
@@ -329,7 +327,7 @@ main {
 }
 
 /* =============================================
-           BOTÕES
+           BOT?ES
            ============================================= */
 .btn {
     display: inline-flex;
@@ -345,7 +343,7 @@ main {
     transition: background .15s, color .15s, border-color .15s, opacity .15s;
     text-decoration: none;
 }
-/* Primário: fundo neon — para a ação principal da tela */
+/* Prim?rio: fundo neon ? para a a??o principal da tela */
 .btn-primary {
     background: var(--accent);
     color: #000;
@@ -359,7 +357,7 @@ main {
         opacity: 1;
     }
 
-/* Outline: só borda — para ações secundárias */
+/* Outline: s? borda ? para a??es secund?rias */
 .btn-outline {
     background: transparent;
     color: var(--text);
@@ -372,7 +370,7 @@ main {
         opacity: 1;
     }
 
-/* Danger: vermelho — para deletar/ação destrutiva */
+/* Danger: vermelho ? para deletar/a??o destrutiva */
 .btn-danger {
     background: transparent;
     color: var(--danger);
@@ -391,7 +389,7 @@ main {
 }
 
 /* =============================================
-           FORMULÁRIOS
+           FORMUL?RIOS
            ============================================= */
 .form-group {
     margin-bottom: 1.25rem;
@@ -439,14 +437,14 @@ textarea.form-control {
     min-height: 100px;
 }
 
-/* Mensagem de erro de validação abaixo do campo */
+/* Mensagem de erro de valida??o abaixo do campo */
 .field-validation-error {
     display: block;
     color: var(--danger);
     font-size: 0.78rem;
     margin-top: 0.3rem;
 }
-/* Erro geral do formulário (ex: "Email inválido") */
+/* Erro geral do formul?rio (ex: "Email inv?lido") */
 .validation-summary-errors ul {
     list-style: none;
     background: #ff444415;
@@ -462,7 +460,7 @@ textarea.form-control {
     }
 
 /* =============================================
-           CARD DE FORMULÁRIO (Login, Cadastro, etc.)
+           CARD DE FORMUL?RIO (Login, Cadastro, etc.)
            ============================================= */
 .form-card {
     background: var(--surface);
@@ -519,7 +517,7 @@ tr:hover td {
     background: #161616;
 }
 
-/* Linha de ações (editar/deletar) */
+/* Linha de a??es (editar/deletar) */
 .td-actions {
     display: flex;
     gap: 0.5rem;
@@ -577,7 +575,7 @@ tr:hover td {
     }
 
 /* =============================================
-           ESTADO VAZIO (quando não há carros)
+           ESTADO VAZIO (quando n?o h? carros)
            ============================================= */
 .empty-state {
     text-align: center;
@@ -593,7 +591,7 @@ tr:hover td {
     }
 
 /* =============================================
-           DIVISOR / HEADER DA SEÇÃO
+           DIVISOR / HEADER DA SE??O
            ============================================= */
 .section-header {
     display: flex;
@@ -605,7 +603,7 @@ tr:hover td {
 }
 
 /* =============================================
-           LINHA DIVISÓRIA DECORATIVA
+           LINHA DIVIS?RIA DECORATIVA
            ============================================= */
 .divider {
     border: none;
@@ -614,24 +612,47 @@ tr:hover td {
 }
 
 /* =============================================
-           FOOTER
-           ============================================= */
-footer {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    padding: 1.5rem;
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.78rem;
-    font-family: var(--font-mono);
+   FOOTER ï¿½ estilo minimalista (inspirado Geely)
+   ============================================= */
+.site-footer {
+    background: #000;
+    border-top: 1px solid #1a1a1a;
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
 }
 
-    footer span {
-        color: var(--accent);
-    }
+.site-footer__inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-footer__copy {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: #555;
+    letter-spacing: 0.04em;
+}
+
+.site-footer__logo img {
+    height: 36px;
+    width: auto;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+    display: block;
+}
+
+.site-footer__logo:hover img {
+    opacity: 1;
+}
 
 /* =============================================
-           RESPONSIVO BÁSICO
+           RESPONSIVO B?SICO
            ============================================= */
 @@media (max-width: 640px) {
     .navbar {
@@ -790,7 +811,7 @@ footer {
         color: #444;
     }
 
-/* Botões Alugar / Comprar */
+/* Bot?es Alugar / Comprar */
 .card-btn {
     display: flex;
     border-top: 1px solid #1a1a1a;
@@ -846,6 +867,7 @@ footer {
         text-transform: uppercase;
         margin: 0;
     }
+
 @@media (max-width: 400px) {
     .card-grid {
         grid-template-columns: 1fr;

@@ -67,7 +67,7 @@ Bruno_n int default ('Não teve nota')
 -- criando a tabela de dados mortos
 drop table if exists tb_usuario_apagado;
 
-create table tb_usuario_apagado(
+create table if not exists tb_usuario_apagado(
     Id int,
     Nome varchar(50),
     Email varchar(80),
@@ -76,6 +76,22 @@ create table tb_usuario_apagado(
     Nivel varchar(20),
     Data_apagada datetime default current_timestamp
 );
+
+create table if not exists tb_compras(
+Id int primary key auto_increment,
+Id_usuario int not null,
+Id_carro int not null,
+Nome_carro varchar(100) not null,
+Nome_cliente varchar(100) not null,
+Categoria varchar(20) not null,
+Imagem varchar(250),
+Valor decimal(10,2) not null,
+Data_compra datetime default current_timestamp,
+Data_retirada date not null,
+foreign key (Id_usuario) references tb_usuario(Id),
+foreign key (Id_carro) references tb_carros(Id_carro)
+);
+
 
 -- criando o trigger para fazer a função de enviar as informações do usuario deletado
 -- para a tabela morta
@@ -110,7 +126,7 @@ values ('adimin','adm@email.com','$2a$11$xa4QYUU.pOHnXtSHss/kRuT.iDy3g6L62YGhpPZ
 insert into tb_usuario (Nome, Email, Senha, Nivel)
 values ('devB','oneadm@email.com','@@..', 'Admin');
 
-
+delete from tb_usuario where Id= 4;
 select*from tb_usuario;
 select*from tb_usuario_apagado;
 

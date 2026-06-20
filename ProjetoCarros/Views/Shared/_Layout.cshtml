@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProjetoCarros.styles.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body style="font-family: 'Inter', sans-serif;">
 
@@ -32,6 +34,13 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Carros" asp-action="CarrosHibridos">Híbrido</a></li>
                             </ul>
                         </li>
+
+                        <li class="nav-item dropdown">
+
+
+
+
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white px-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Estoque</a>
                             <ul class="dropdown-menu dropdown-menu-dark border-0 rounded-0 border-top border-white border-2 mt-0" style="background-color: black;">
@@ -40,12 +49,12 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
+
                             <a class="nav-link dropdown-toggle text-white px-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Serviços</a>
                             <ul class="dropdown-menu dropdown-menu-dark border-0 rounded-0 border-top border-white border-2 mt-0" style="background-color: black;">
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Servicos" asp-action="Agendamentos">Agendamentos</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Servicos" asp-action="Financiamento">Financiamento</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Servicos" asp-action="TestDrive">Test Drive</a></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Servicos" asp-action="Carregamento">Carregamento</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Servicos" asp-action="Financiamento">Financiamento</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -156,6 +165,16 @@
     <script src="~/js/splash.js" asp-append-version="true"></script>
     <script src="~/js/Header.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Footer global -->
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <span class="site-footer__copy">&copy; 2026 - ProjetoCarros</span>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="site-footer__logo">
+                <img src="~/images/logo.png" alt="Logo ProjetoCarros" />
+            </a>
+        </div>
+    </footer>
 
 </body>
 </html>

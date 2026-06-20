@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ProjetoCarros.Interfaces;
 using ProjetoCarros.Models;
+using System.Configuration;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ProjetoCarros.Controllers
 {
@@ -126,6 +128,72 @@ namespace ProjetoCarros.Controllers
         public IActionResult SemiNovos()
         {
             return View();
+        }
+
+        private readonly ICompraRepositorio _compraRepositorio; //adiciona o campo
+
+        // adiciona o parametro
+        public CarrosController(ICarroRepositorio carroRepositorio, ICompraRepositorio compraRepositorio)
+        {
+            _carroRepositorio = carroRepositorio;
+            _compraRepositorio = compraRepositorio;
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Comprar(int id)
+        {
+            var usuarioIdClaim = User.FindFirst("UsuarioId");
+            if (usuarioIdClaim == null) return RedirectToAction("Logar", "Usuario");
+
+            var carro = _carroRepositorio.BuscarPorId(id);
+            if (carro == null) return NotFound();
+
+            //calcula 3 dias uteis a partir de hoje
+            DateTime dataRetirada = DateTime.Today;
+            int diasAdicionados = 0;
+            while (diasAdicionados < 3)
+            {
+                dataRetirada = dataRetirada.AddDays(1);
+                if (dataRetirada.DayOfWeek != DayOfWeek.Saturday && dataRetirada.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    diasAdicionados++;
+                }
+
+            }
+
+            var compra = new Compra
+            {
+                IdUsuario = int.Parse(usuarioIdClaim.Value),
+                IdCarro = carro.Id,
+                NomeCliente = User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value ?? "Cliente",
+                NomeCarro = carro.Nome,
+                Categoria = carro.Categoria,
+                Imagem = carro.Imagem,
+                Valor = carro.Preco,
+                DataRetirada = dataRetirada
+
+            };
+
+            var compraCriada = _compraRepositorio.Criar(compra);
+            return RedirectToAction("Comprovante", new { id = compraCriada.Id });
+
+        }
+
+
+        [Authorize]
+        public IActionResult Comprovante(int id)
+        {
+            var compra = _compraRepositorio.BuscarPorId(id);
+            if (compra == null) return NotFound();
+
+            //Garante que so o proprio comprador veja o comprovante
+            var usuarioIdClaim = User.FindFirst("UsuarioId");
+            if (usuarioIdClaim == null || compra.IdUsuario != int.Parse(usuarioIdClaim.Value))
+                return RedirectToAction("AcessoNegado");
+
+            return View(compra);
         }
     }
 }
