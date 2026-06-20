@@ -5,7 +5,6 @@
 @section Scripts {
     <script src="~/js/splash.js" asp-append-version="true"></script>
     <script src="~/js/CarroselVideo.js" asp-append-version="true"></script>
-
 }
 
 @section Styles {
@@ -13,27 +12,6 @@
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/frota-destaque.css" asp-append-version="true" />
 }
-
-
- 
-
-}
-
-<link rel="stylesheet" href="~/css/carrossel.css" />
-
-}
-
-@section Styles {
-    <link rel="stylesheet" href="~/css/carrossel.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/frota-destaque.css" asp-append-version="true" />
-}
-
-}
-
-<link rel="stylesheet" href="~/css/carrossel.css" />
-
- 
 
 <!-- Splash -->
 <div id="splash-overlay">
@@ -42,15 +20,7 @@
     </div>
 </div>
 
-
 <!-- Carrossel -->
-
- 
-
-
-<!-- Carrossel --!>
- 
-
 <div id="carouselHome" class="carousel slide" data-bs-ride="false">
 
     <!-- Indicadores -->
@@ -71,11 +41,6 @@
     <!-- Slides -->
     <div class="carousel-inner">
 
-
-
- 
-
-
         <!-- SLIDE 0: VÍDEO -->
         <div class="carousel-item active" data-bs-interval="false" id="slide-video">
             <video id="carouselVideo"
@@ -89,72 +54,12 @@
                 <h1>Performance in the new Taycan</h1>
                 <p>Sinta a emoção de dirigir o futuro.</p>
                 <a asp-controller="Servicos" asp-action="Agendamentos" class="btn-test-drive">
-
-        <!-- SLIDE 0: VÍDEO (primeiro) -->
-        <div class="carousel-item active" data-bs-interval="false" id="slide-video" style="position: relative;">
-            <video id="carouselVideo"
-                   src="~/images/Porsche30seg.mp4"
-                   class="d-block w-100"
-                   style="object-fit: cover; max-height: 600px;"
-                   muted
-                   playsinline>
-            </video>
-            <!-- Overlay de texto e botão -->
-            <div style="
-                position: absolute;
-                inset: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.45));
-                padding: 1rem;
-            ">
-                <h1 style="
-                    color: #fff;
-                    font-size: clamp(1.6rem, 4vw, 3rem);
-                    font-weight: 700;
-                    letter-spacing: 0.04em;
-                    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-                    margin-bottom: 0.4rem;
-                ">
-                    Performance in the new Taycan
-                </h1>
-                <p style="
-                    color: rgba(255,255,255,0.85);
-                    font-size: clamp(0.95rem, 2vw, 1.2rem);
-                    font-weight: 400;
-                    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-                    margin-bottom: 1.8rem;
-                ">Sinta a emoção de dirigir o futuro.</p>
-                <a asp-controller="Servicos" asp-action="Agendamentos"
-                   style="
-                    display: inline-block;
-                    padding: 0.75rem 2.2rem;
-                    background: transparent;
-                    color: #fff;
-                    border: 2px solid #fff;
-                    border-radius: 0;
-                    font-size: 0.95rem;
-                    font-weight: 600;
-                    letter-spacing: 0.1em;
-                    text-transform: uppercase;
-                    text-decoration: none;
-                    transition: background 0.25s, color 0.25s;
-                "
-                   onmouseover="this.style.background='#fff'; this.style.color='#000';"
-                   onmouseout="this.style.background='transparent'; this.style.color='#fff';">
                     Agendar Test Drive
                 </a>
             </div>
-        </div> 
+        </div>
+
         <!-- SLIDE 1 -->
-
-
-
-        <!-- SLIDE 1 --!>
-
         <div class="carousel-item" data-bs-interval="5000">
             <img src="~/images/carros/Byd_Dolphin_Cinza_Concessionaria.png" class="d-block w-100" alt="BYD Dolphin">
             <div class="carousel-caption d-none d-md-block">
@@ -260,15 +165,6 @@
 
 <!-- Foco em Elétricos -->
 <section class="foco-eletricos-section">
-
-
-<!-- Foco em Elétricos -->
-<section class="foco-eletricos-section">
-
-
-<footer class="border-top footer text-muted">
-
-
     <div class="container">
         <h2 class="foco-eletricos-titulo">FOCO TOTAL EM MOBILIDADE ELÉTRICA</h2>
         <p class="foco-eletricos-texto">
@@ -282,7 +178,6 @@
             treinada para te guiar com transparência por toda a jornada, da escolha do carro ao
             suporte técnico especializado no pós-venda.
         </p>
-
     </div>
 </section>
 
@@ -310,35 +205,6 @@
             </div>
         </div>
     </div>
-
-    </div>
-</section>
-
-<!-- Cards Elétricos / Híbridos -->
-<section class="frota-cards-section">
-    <div class="row g-0">
-        <div class="col-12 col-md-6">
-            <div class="frota-card frota-card-eletrico">
-                <img src="~/images/carros/Carroeletrico.jpg" class="frota-card-img" alt="Carros 100% Elétricos">
-                <div class="frota-card-overlay">
-                    <span class="frota-card-tag">100% ELÉTRICOS</span>
-                    <h3 class="frota-card-titulo">Energia pura, zero emissões</h3>
-                    <p class="frota-card-desc">Tecnologia 100% elétrica para quem quer estar à frente do seu tempo.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <div class="frota-card frota-card-hibrido">
-                <img src="~/images/carros/CarroHibrido.jpg" class="frota-card-img" alt="Carros Híbridos">
-                <div class="frota-card-overlay">
-                    <span class="frota-card-tag">HÍBRIDOS</span>
-                    <h3 class="frota-card-titulo">O melhor dos dois mundos</h3>
-                    <p class="frota-card-desc">Autonomia estendida e eficiência sem abrir mão da performance.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <div class="frota-cards-botoes">
         <a asp-controller="Carros" asp-action="CarrosEletricos" class="btn-frota btn-frota-eletrico">Conferir Elétricos</a>

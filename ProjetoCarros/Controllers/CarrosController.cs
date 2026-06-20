@@ -10,10 +10,12 @@ namespace ProjetoCarros.Controllers
     public class CarrosController : Controller
     {
         private readonly ICarroRepositorio _carroRepositorio;
+        private readonly ICompraRepositorio _compraRepositorio;
 
-        public CarrosController(ICarroRepositorio carroRepositorio)
+        public CarrosController(ICarroRepositorio carroRepositorio, ICompraRepositorio compraRepositorio)
         {
             _carroRepositorio = carroRepositorio;
+            _compraRepositorio = compraRepositorio;
         }
 
         //paginas publicas 
@@ -130,14 +132,8 @@ namespace ProjetoCarros.Controllers
             return View();
         }
 
-        private readonly ICompraRepositorio _compraRepositorio; //adiciona o campo
+       
 
-        // adiciona o parametro
-        public CarrosController(ICarroRepositorio carroRepositorio, ICompraRepositorio compraRepositorio)
-        {
-            _carroRepositorio = carroRepositorio;
-            _compraRepositorio = compraRepositorio;
-        }
 
         [Authorize]
         [HttpPost]

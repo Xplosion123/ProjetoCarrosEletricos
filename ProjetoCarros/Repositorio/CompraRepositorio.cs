@@ -17,9 +17,9 @@ namespace ProjetoCarros.Repositorio
             using var conn = new MySqlConnection(_connectionString);
             conn.Open();
 
-            var sql = @"INSER INTO tb_compras
-                        (Id_usuario, Id_carro, Nome_cliente, Nome_carro, Categoria, Imagem, Valor, Data_retirada,)
-                         VALUES (@idUsuario, @idCarro, nomeCliente, @nomeCarro, @categoria, @imagem, @valor,@dataCadastro)";
+            var sql = @"INSERT INTO tb_compras
+            (Id_usuario, Id_carro, Nome_cliente, Nome_carro, Categoria, Imagem, Valor, Data_retirada)
+            VALUES (@idUsuario, @idCarro, @nomeCliente, @nomeCarro, @categoria, @imagem, @valor, @dataRetirada)";
 
             using var cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@idUsuario", compra.IdUsuario);
