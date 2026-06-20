@@ -12,6 +12,10 @@ namespace ProjetoCarros.Controllers
         {
             return View();
         }
+        public IActionResult Agendar()
+        {
+            return View();
+        }
         public IActionResult Financiamento()
         {
             return View();
