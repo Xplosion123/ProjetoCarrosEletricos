@@ -123,8 +123,7 @@
 .lista-vantagens {
     list-style: none;
     padding: 0;
-    margin: 0 0 30px;
-}
+    margin: 0 0 30px;}
 
     .lista-vantagens li {
         display: flex;
@@ -272,8 +271,7 @@ input[type="range"] {
             color: #1a1a1a;
         }
 
-    .tabela-financiamento tr.destaque {
-        background-color: #0077d0;
+    .tabela-financiamento tr.destaque {        background-color: #0077d0;
     }
 
         .tabela-financiamento tr.destaque td {

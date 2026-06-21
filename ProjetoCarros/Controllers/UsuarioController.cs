@@ -134,5 +134,32 @@ namespace ProjetoCarros.Controllers
 
             return RedirectToAction("Configuracoes");
         }
+        // ---- LOGIN VIA AJAX (usado no passo 2 do agendamento de test-drive) ----
+        [HttpPost]
+        public async Task<IActionResult> LogarAjax([FromBody] Usuario model)
+        {
+            if (model == null || string.IsNullOrWhiteSpace(model.Email) || string.IsNullOrWhiteSpace(model.Senha))
+            {
+                return Json(new { sucesso = false, mensagem = "Preencha e-mail e senha." });
+            }
+
+            var usuario = _usuarioRepositorio.Validar(model.Email, model.Senha);
+            if (usuario == null)
+            {
+                return Json(new { sucesso = false, mensagem = "E-mail ou senha inválidos." });
+            }
+
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Name, usuario.Nome),
+        new Claim(ClaimTypes.Email, usuario.Email),
+        new Claim("NivelAcesso", usuario.Nivel),
+        new Claim("UsuarioId", usuario.Id.ToString())
+    };
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties { IsPersistent = false });
+
+            return Json(new { sucesso = true, nome = usuario.Nome });
+        }
     }
 }

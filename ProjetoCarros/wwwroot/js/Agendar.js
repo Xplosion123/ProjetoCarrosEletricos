@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     "use strict";
 
     var diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
@@ -116,19 +116,47 @@
 
         var email = document.getElementById("loginEmail").value.trim();
         var senha = document.getElementById("loginSenha").value.trim();
+        var erroEl = document.getElementById("loginErro");
+        var btnSubmit = this.querySelector('button[type="submit"]');
 
         if (!email || !senha) return;
 
-        // TODO: quando o login/banco existir de verdade, troca isso
-        // por uma chamada real de autenticação + POST do agendamento.
+        erroEl.classList.add("d-none");
+        erroEl.textContent = "";
+        btnSubmit.disabled = true;
+        var textoOriginal = btnSubmit.textContent;
+        btnSubmit.textContent = "Entrando...";
 
-        document.getElementById("confProtocolo").textContent = gerarProtocolo();
-        document.getElementById("confData").textContent =
-            diasSemana[estado.dataSelecionada.getDay()] + ", " + formatarData(estado.dataSelecionada);
-        document.getElementById("confHorario").textContent = estado.horarioSelecionado;
-        document.getElementById("confCliente").textContent = email;
+        fetch("/Usuario/LogarAjax", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email, senha: senha })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = textoOriginal;
 
-        irParaPasso(3);
+                if (!data.sucesso) {
+                    erroEl.textContent = data.mensagem;
+                    erroEl.classList.remove("d-none");
+                    return;
+                }
+
+                document.getElementById("confProtocolo").textContent = gerarProtocolo();
+                document.getElementById("confData").textContent =
+                    diasSemana[estado.dataSelecionada.getDay()] + ", " + formatarData(estado.dataSelecionada);
+                document.getElementById("confHorario").textContent = estado.horarioSelecionado;
+                document.getElementById("confCliente").textContent = data.nome;
+
+                irParaPasso(3);
+            })
+            .catch(function () {
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = textoOriginal;
+                erroEl.textContent = "Erro ao conectar com o servidor. Tente novamente.";
+                erroEl.classList.remove("d-none");
+            });
     });
 
     document.getElementById("btnNovoAgendamento").addEventListener("click", function () {
